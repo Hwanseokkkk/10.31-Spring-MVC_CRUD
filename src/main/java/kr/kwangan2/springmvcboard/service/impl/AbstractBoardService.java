@@ -3,6 +3,7 @@ package kr.kwangan2.springmvcboard.service.impl;
 import java.util.List;
 
 import kr.kwangan2.springmvcboard.domain.BoardVO;
+import kr.kwangan2.springmvcboard.domain.Criteria;
 import kr.kwangan2.springmvcboard.mapper.BoardMapper;
 import kr.kwangan2.springmvcboard.service.BoardService;
 
@@ -14,6 +15,18 @@ public class AbstractBoardService implements BoardService {
 	public List<BoardVO> boardVOList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	
+	@Override
+	public List<BoardVO> boardVOList(Criteria criteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	public int boardVOListCount(Criteria criteria) {
+		return 0;
 	}
 
 	@Override

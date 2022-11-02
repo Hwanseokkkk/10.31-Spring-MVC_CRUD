@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.kwangan2.springmvcboard.domain.BoardVO;
+import kr.kwangan2.springmvcboard.domain.Criteria;
 import kr.kwangan2.springmvcboard.service.BoardService;
+import kr.kwangan2.springmvcboard.util.PageCalc;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
@@ -21,11 +23,22 @@ public class BoardController {
 
 	private BoardService boardService;
 	
+//	@GetMapping("/list")
+//	public String boardVOList(Model model) {
+//		model.addAttribute("boardVOList", boardService.boardVOList());
+//		return "boardList";
+//	}
+	
+	
+	
 	@GetMapping("/list")
-	public String boardVOList(Model model) {
-		model.addAttribute("boardVOList", boardService.boardVOList());
+	public String boardVOList(Criteria criteria, Model model) {
+		model.addAttribute("boardVOList",boardService.boardVOList(criteria));
+		model.addAttribute("pageCalc", 
+				new PageCalc(criteria, boardService.boardVOListCount(criteria)).calcPage());
 		return "boardList";
 	}
+	
 	
 	@GetMapping("/boardInsert")
 	public String boardInsert() {
@@ -34,7 +47,7 @@ public class BoardController {
 	
 	@PostMapping("/boardInsertProc")
 	public String boardInsertProc(BoardVO boardVO, RedirectAttributes redirectAttributes) {
-		if(boardService.insertBoardVO(boardVO) >0) {
+		if(boardService.insertBoardVO(boardVO) > 0) {
 			redirectAttributes.addFlashAttribute("result", "success");
 		}
 		return "redirect:/";

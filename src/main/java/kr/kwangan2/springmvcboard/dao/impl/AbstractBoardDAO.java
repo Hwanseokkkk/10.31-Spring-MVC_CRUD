@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import kr.kwangan2.springmvcboard.dao.BoardDAO;
 import kr.kwangan2.springmvcboard.domain.BoardVO;
+import kr.kwangan2.springmvcboard.domain.Criteria;
 import kr.kwangan2.springmvcboard.mapper.BoardMapper;
 import lombok.Setter;
 
@@ -14,6 +15,14 @@ public abstract class AbstractBoardDAO implements BoardDAO {
 	@Override
 	public List<BoardVO> boardVOList() {
 		return null;
+	}
+	@Override
+	public List<BoardVO> boardVOList(Criteria criteria) {
+		return null;
+	}
+	@Override
+	public int boardVOListCount(Criteria criteria) {
+		return 0;
 	}
 
 	@Override

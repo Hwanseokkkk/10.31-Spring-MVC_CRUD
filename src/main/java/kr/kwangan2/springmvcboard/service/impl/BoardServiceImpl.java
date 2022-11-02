@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kr.kwangan2.springmvcboard.domain.BoardVO;
+import kr.kwangan2.springmvcboard.domain.Criteria;
 
 public class BoardServiceImpl extends AbstractBoardService {
 	
@@ -12,6 +13,15 @@ public class BoardServiceImpl extends AbstractBoardService {
 	@Override
 	public List<BoardVO> boardVOList() {
 		return null;
+	}
+	
+	@Override
+	public List<BoardVO> boardVOList(Criteria criteria) {
+		return null;
+	}
+	
+	public int boardVOListCount(Criteria criteria) {
+		return 0;
 	}
 
 	@Override

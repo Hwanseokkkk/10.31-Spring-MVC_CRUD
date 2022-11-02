@@ -5,11 +5,16 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
 import kr.kwangan2.springmvcboard.domain.BoardVO;
+import kr.kwangan2.springmvcboard.domain.Criteria;
 
 public interface BoardMapper {
 	
 //	@Select(" select * from board where bno>0 ")
 	public List<BoardVO> boardVOList();
+	
+	public List<BoardVO> boardVOList(Criteria criteria);
+	
+	public int boardVOListCount(Criteria criteria);
 	
 	public int insertBoardVO(BoardVO boardVO);
 	
